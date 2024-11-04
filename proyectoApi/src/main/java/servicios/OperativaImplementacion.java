@@ -77,41 +77,44 @@ public class OperativaImplementacion implements OperativaInterfaz {
 	private static final OkHttpClient client = new OkHttpClient(); // Inicializa el cliente aquí
 	private static final ObjectMapper objectMapper = new ObjectMapper();
 
-	public DtoUsuario convertirJsonDesdeUrl(String url) {
-		DtoUsuario usuarioDTO = null;
+	
+	  public DtoClubes convertirJsonDesdeUrl(String url) {
+	        DtoClubes clubesDTO = null;
 
-		try {
-			Request request = new Request.Builder().url(url).build();
+	        try {
+	        	
+	            Request request = new Request.Builder().url(url).build();
 
-			// Realiza la solicitud HTTP GET
-			try (Response response = client.newCall(request).execute()) {
-				if (!response.isSuccessful()) {
-					throw new IOException("Unexpected code " + response);
-				}
+	            // Realiza la solicitud HTTP GET
+	            try (Response response = client.newCall(request).execute()) {
+	                if (!response.isSuccessful()) {
+	                    throw new IOException("Unexpected code " + response);
+	                }
 
-				// Mapea la respuesta JSON al DTO
-				usuarioDTO = objectMapper.readValue(response.body().string(), DtoUsuario.class);
-			}
-		} catch (IOException e) {
-			e.printStackTrace(); // Manejo básico de excepciones
-		}
+	                // Mapea la respuesta JSON al DTO
+	                clubesDTO = objectMapper.readValue(response.body().string(), DtoClubes.class);
+	            }
+	        } catch (IOException e) {
+	            e.printStackTrace(); // Manejo básico de excepciones
+	        }
 
-		return usuarioDTO;
-	}
+	        return clubesDTO;
+	    }
 
-	private void cambioJsonADto() {
-		String url = "https://api.example.com/usuario"; // Reemplaza con la URL real
-		DtoUsuario usuarioDTO = convertirJsonDesdeUrl(url);
+	    public void cambioJsonADto() {
+	        String url = "https://api.example.com/clubes"; // Reemplaza con la URL real
+	    
+	        DtoClubes clubesDTO = convertirJsonDesdeUrl(url);
 
-		if (usuarioDTO != null) {
-			System.out.println("ID: " + usuarioDTO.getId());
-			System.out.println("Nombre: " + usuarioDTO.getNombre());
-			System.out.println("Apellidos: " + usuarioDTO.getApellidos());
-			System.out.println("Correo: " + usuarioDTO.getCorreo());
-			System.out.println("DNI: " + usuarioDTO.getDni());
-		} else {
-			System.out.println("No se pudo convertir el JSON a DTO.");
-		}
-	}
+	        if (clubesDTO != null) {
+	            System.out.println("ID: " + clubesDTO.getId());
+	            System.out.println("Nombre: " + clubesDTO.getNombre());
+	            System.out.println("Clave: " + clubesDTO.getClave());
+	            System.out.println("Contraseña: " + clubesDTO.getContrasenia());
+	            System.out.println("Fecha de Creación: " + clubesDTO.getFechaCreacion());
+	        } else {
+	            System.out.println("No se pudo convertir el JSON a DTO.");
+	        }
+	    }
 
 }

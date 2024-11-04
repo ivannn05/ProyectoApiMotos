@@ -35,7 +35,7 @@ public class Application
 				op.altaClub();
 				break;
 			case 2:
-				System.out.println("Entro en clubs");
+				System.out.println("Entro en Eliminar Club");
 				
 				break;
 
