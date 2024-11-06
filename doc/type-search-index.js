@@ -1,1 +1,0 @@
-typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"edu.jsia.api","l":"ApiApplication"},{"p":"edu.jsia.api.servicios","l":"Club"},{"p":"edu.jsia.api.servicios","l":"ClubController"},{"p":"edu.jsia.api.Repositorys","l":"ClubRepository"},{"p":"edu.jsia.api.servicios","l":"ClubService"}];updateSearchResults();
