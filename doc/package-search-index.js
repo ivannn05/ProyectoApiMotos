@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"edu.jsia.api"},{"l":"edu.jsia.api.Repositorys"},{"l":"edu.jsia.api.servicios"}];updateSearchResults();
